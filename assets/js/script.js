@@ -19,7 +19,9 @@ async function getWeatherAPI(city){
     return outer
 }
 
-console.log(getWeatherAPI("Austin"))
+getWeatherAPI("Austin").then(data, function(){
+    console.log(data)
+})
 
 var submit = document.querySelector("#submit")
 
