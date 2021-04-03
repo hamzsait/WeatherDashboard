@@ -1,13 +1,26 @@
- 
+function getWeatherAPI(city){
 
-function getWeatherAPI(){
+    fetch("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=fb58f472da0b2a8c35d45500aeb1b7c1")
+        .then(function(response){
+            return response.json()
+        })
+        .then (function(data){
 
-    fetch("api.openweathermap.org/data/2.5/weather?q=austin&appid=fb58f472da0b2a8c35d45500aeb1b7c1")
-        .then(response => response.json())
-        .then(data => {console.log(data)})
+            fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+data.coord.lat+"&lon="+data.coord.lon+"&appid=fb58f472da0b2a8c35d45500aeb1b7c1")
+                .then(function(response){
+                    return response.json()
+                })
+                .then (function(data){
+                    console.log(data)
+                })
+
+        })
+
+    
+
 }
 
-getWeatherAPI()
+getWeatherAPI("Austin")
 
 var submit = document.querySelector("#submit")
 
