@@ -23,3 +23,15 @@ header{
     text-align: center;
     flex-flow: column;
 }
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding:20px;
+    align-items: center;
+}
+
+button{
+    width: 40%;
+    margin:10px;
+}
