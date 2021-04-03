@@ -1,5 +1,9 @@
 header{
-    width: 100%;
+    width:100%;
+    margin:auto;
+    padding:auto;
+    border:black solid 1px;
     text-align: center;
-    display: flex;
+    background-color: rgb(76, 108, 246);
 }
+
