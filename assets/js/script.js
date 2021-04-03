@@ -1,3 +1,15 @@
+import csv from './jquery.csv.js';
+
+data = ($(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "worldcities.csv",
+        dataType: "csv",
+     });
+})).toObjects(csv);
+
+console.log(data)
+
 var submit = document.querySelector("#submit")
 
 submit.textContent = "SEARCH"
@@ -5,13 +17,7 @@ submit.textContent = "SEARCH"
 submit.addEventListener(function(event){
     event.preventDefault()
 
-    var requestUrl = 'https://api.github.com/orgs/nodejs/repos';
+    console.log("hello")
 
-    fetch(requestUrl)
-        .then(function (response) {
-        return response.json();
-        })
-        .then(function (data) {
-        console.log(data)
-        })
+    
 })

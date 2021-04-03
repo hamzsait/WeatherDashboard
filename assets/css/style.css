@@ -5,6 +5,7 @@ header{
     border:black solid 1px;
     text-align: center;
     background-color: rgb(76, 108, 246);
+    height:10vh;
 }
 
 .container{
@@ -16,12 +17,14 @@ header{
     border:black solid 1px;
     text-align: center;
     flex-flow: column;
+    height: 87vh;
 }
 #weatherCol{
     width:65%;
     border:black solid 1px;
     text-align: center;
     flex-flow: column;
+    height: 87vh;
 }
 
 form{
