@@ -7,3 +7,19 @@ header{
     background-color: rgb(76, 108, 246);
 }
 
+.container{
+    display:flex;
+}
+
+#searchCol{
+    width:35%;
+    border:black solid 1px;
+    text-align: center;
+    flex-flow: column;
+}
+#weatherCol{
+    width:65%;
+    border:black solid 1px;
+    text-align: center;
+    flex-flow: column;
+}
