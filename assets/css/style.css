@@ -16,6 +16,7 @@ header{
     width: auto;
     height: 40%;
     border: black 2px solid;
+    text-align: center;
 }
 
 #searchCol{
@@ -25,12 +26,37 @@ header{
     flex-flow: column;
     height: 87vh;
 }
+
+#searchCol h4{
+    color:red;
+    height: 10px;
+}
+
+#pastResults{
+    list-style-type: none;
+    padding: 0;
+}
+
+#pastResults button{
+    width: 80%;
+}
+
 #weatherCol{
     width:65%;
     border:black solid 1px;
     text-align: center;
     flex-flow: column;
     height: 87vh;
+}
+
+#cityTitle{
+    font-size: 35px;
+}
+
+#cityItems{
+    list-style-type: none;
+    padding: 0;
+    font-size: 25px;
 }
 
 form{

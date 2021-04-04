@@ -7,6 +7,7 @@
     <title>Weather Dashboard</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -16,12 +17,17 @@
 
     <div class = "container">
         <div id = "searchCol">
-            <h2>Search For a City</h2>
+
+            <h2>Search For A City:</h2>
+            <h4 id = "searchError"></h4>
 
             <form>
                 <input id = "input"></input>
-                <button id = "submit">Submit</button>
+                <button id = "submit">SUBMIT</button>
             </form>
+
+            <ul id = "pastResults" class = "preButton"></ul>
+
         </div>
 
         <div id = "weatherCol">
@@ -30,7 +36,12 @@
 
             <div id = "currentWeatherBox">
                 <h3 id = "cityTitle"></h3>
-                <ul id = "cityItems"></ul>
+                <ul id = "cityItems">
+                    <li id = "temp"></li>
+                    <li id = "wind"></li>
+                    <li id = "humidity"></li>
+                    <li id = "uvi"></li>
+                </ul>
             </div>
         </div>
     </div>
