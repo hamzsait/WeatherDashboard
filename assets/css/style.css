@@ -12,6 +12,12 @@ header{
     display:flex;
 }
 
+#currentWeatherBox{
+    width: auto;
+    height: 40%;
+    border: black 2px solid;
+}
+
 #searchCol{
     width:35%;
     border:black solid 1px;

@@ -15,11 +15,11 @@ async function getWeatherAPI(city){
         .then (function(data){
             return data
         })
-    console.log(outer)
     return outer
 }
 
-getWeatherAPI("Austin").then(data, function(){
+
+getWeatherAPI("Austin").then(function(data){
     console.log(data)
 })
 
