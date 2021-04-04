@@ -70,3 +70,38 @@ button{
     width: 40%;
     margin:10px;
 }
+
+#boxes{
+    display: flex;
+}
+
+#Day1{
+    width:20%;
+    border: black solid 3px;
+    height: 40vh;
+    margin: 10px;
+}
+#Day2{
+    width:20%;
+    border: black solid 3px;
+    height: 40vh;
+    margin: 10px;
+}
+#Day3{
+    width:20%;
+    border: black solid 3px;
+    height: 40vh;
+    margin: 10px;
+}
+#Day4{
+    width:20%;
+    border: black solid 3px;
+    height: 40vh;
+    margin: 10px;
+}
+#Day5{
+    width:20%;
+    border: black solid 3px;
+    height: 40vh;
+    margin: 10px;
+}
