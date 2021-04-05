@@ -6,6 +6,7 @@ header{
     text-align: center;
     background-color: rgb(165, 216, 251);
     height:10vh;
+    font-size: 23px;
 }
 
 .container{
@@ -88,6 +89,7 @@ button{
     width: 40%;
     margin:10px;
     background-color: rgb(165, 216, 251);
+    font-size: 20px;
 }
 
 #boxes{
