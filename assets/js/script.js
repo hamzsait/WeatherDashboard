@@ -34,6 +34,7 @@ try{
 
                 list = document.querySelector("#day"+(x+1)+"Content")
                 headDate = document.createElement("li")
+                headDate.style.fontSize = "20px"
                 headDate.textContent = moment().day(x+1).format("MM/DD/YY")
                 list.appendChild(headDate)
 
@@ -152,6 +153,7 @@ $("#pastResults").on("click", "button", function(){
 
             list = document.querySelector("#day"+(x+1)+"Content")
             headDate = document.createElement("li")
+            headDate.style.fontSize = "20px"
             headDate.textContent = moment().day(x+1).format("MM/DD/YY")
             list.appendChild(headDate)
 
