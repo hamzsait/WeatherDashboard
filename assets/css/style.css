@@ -53,6 +53,10 @@ header{
     font-size: 35px;
 }
 
+#dateTitle{
+    font-size: 30px;
+}
+
 #cityItems{
     list-style-type: none;
     padding: 0;

@@ -24,6 +24,7 @@ try{
         if (data){
 
             document.getElementById("cityTitle").textContent = items[items.length-1].toUpperCase()
+            document.getElementById("dateTitle").textContent = moment().day(1).format("MM/DD/YY")
             document.getElementById("temp").textContent = (String(data.current.temp*(9/5)-459.67).slice(0,5) +"°F")
             document.getElementById("wind").textContent = (data.current.wind_speed + " MPH")
             document.getElementById("humidity").textContent = (data.current.humidity + "%")
