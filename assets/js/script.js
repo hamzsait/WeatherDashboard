@@ -51,16 +51,20 @@ submit.addEventListener("click",function(event){
 
                 for (x = 0; x<5; x++){
 
+                    document.querySelector("#Day"+(x+1)).textContent = ""
                     document.querySelector("#day"+(x+1)+"Content").textContent = ""
 
-                    temp = document.createElement("li").textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +"°F")
-                    document.querySelector("#day"+(x+1)+"Content").append(temp)
+                    temp = document.createElement("li")
+                    temp.textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +"°F")
+                    document.querySelector("#day"+(x+1)+"Content").appendChild(temp)
 
-                    wind = document.createElement("li").textContent = data.daily[x].wind_speed
-                    document.querySelector("#day"+(x+1)+"Content").append(wind)
+                    wind = document.createElement("li")
+                    wind.textContent = data.daily[x].wind_speed
+                    document.querySelector("#day"+(x+1)+"Content").appendChild(wind)
 
-                    humidity = document.createElement("li").textContent = data.daily[x].humidity
-                    document.querySelector("#day"+(x+1)+"Content").append(humidity)
+                    humidity = document.createElement("li")
+                    humidity.textContent = data.daily[x].humidity
+                    document.querySelector("#day"+(x+1)+"Content").appendChild(humidity)
                 }
 
                 for (x = 0; x < pastResults.children.length; x++){
@@ -90,14 +94,17 @@ $("#pastResults").on("click", "button", function(){
 
             document.querySelector("#day"+(x+1)+"Content").textContent = ""
 
-            temp = document.createElement("li").textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +"°F ")
-            document.querySelector("#day"+(x+1)+"Content").append(temp)
+            temp = document.createElement("li")
+            temp.textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +"°F")
+            document.querySelector("#day"+(x+1)+"Content").appendChild(temp)
 
-            wind = document.createElement("li").textContent = data.daily[x].wind_speed
-            document.querySelector("#day"+(x+1)+"Content").append(wind)
+            wind = document.createElement("li")
+            wind.textContent = data.daily[x].wind_speed
+            document.querySelector("#day"+(x+1)+"Content").appendChild(wind)
 
-            humidity = document.createElement("li").textContent = data.daily[x].humidity
-            document.querySelector("#day"+(x+1)+"Content").append(humidity)
+            humidity = document.createElement("li")
+            humidity.textContent = data.daily[x].humidity
+            document.querySelector("#day"+(x+1)+"Content").appendChild(humidity)
         }
 
         document.getElementById("cityTitle").textContent = city.toUpperCase()
