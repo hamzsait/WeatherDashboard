@@ -24,6 +24,7 @@ try{
         if (data){
 
             document.getElementById("cityTitle").textContent = items[items.length-1].toUpperCase()
+            document.getElementById("icon").src = ("http://openweathermap.org/img/wn/"+ data.current.weather[0].icon + "@2x.png")
             document.getElementById("dateTitle").textContent = moment().day(1).format("MM/DD/YY")
             document.getElementById("temp").textContent = (String(data.current.temp*(9/5)-459.67).slice(0,5) +"°F")
             document.getElementById("wind").textContent = (data.current.wind_speed + " MPH")
@@ -35,10 +36,16 @@ try{
 
                 list = document.querySelector("#day"+(x+1)+"Content")
                 headDate = document.createElement("li")
-                headDate.style.fontSize = "25px"
-                headDate.style.marginBottom = "40px"
+                headDate.style.fontSize = "20px"
                 headDate.textContent = moment().day(x+1).format("MM/DD/YY")
                 list.appendChild(headDate)
+
+                console.log(data.daily[x].weather[0].icon)
+                image = document.createElement("img")
+                image.src = ("http://openweathermap.org/img/wn/"+ data.daily[x].weather[0].icon + "@2x.png")
+                image.style.margin = 0
+                image.style.padding = 0
+                document.querySelector("#day"+(x+1)+"Content").appendChild(image)
 
                 temp = document.createElement("li")
                 temp.textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +"°F")
@@ -97,6 +104,7 @@ submit.addEventListener("click",function(event){
             if (data){
 
                 document.getElementById("cityTitle").textContent = getInput.value.toUpperCase()
+                document.getElementById("icon").src = ("http://openweathermap.org/img/wn/"+ data.current.weather[0].icon + "@2x.png")
                 document.getElementById("temp").textContent = (String(data.current.temp*(9/5)-459.67).slice(0,5) +"°F")
                 document.getElementById("wind").textContent = (data.current.wind_speed + " MPH")
                 document.getElementById("humidity").textContent = (data.current.humidity + "%")
@@ -112,6 +120,10 @@ submit.addEventListener("click",function(event){
                     headDate.style.marginBottom = "40px"
                     headDate.textContent = moment().day(x+1).format("MM/DD/YY")
                     list.appendChild(headDate)
+
+                    // image = document.createElement("img")
+                    // image.src = ("http://openweathermap.org/img/wn/"+ data.daily.current.weather[0].icon + "@2x.png")
+                    // list.appendChild(image)
 
                     temp = document.createElement("li")
                     temp.textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +"°F")
@@ -162,6 +174,10 @@ $("#pastResults").on("click", "button", function(){
             headDate.textContent = moment().day(x+1).format("MM/DD/YY")
             list.appendChild(headDate)
 
+            // image = document.createElement("img")
+            // image.src = ("http://openweathermap.org/img/wn/"+ data.daily.current.weather[0].icon + "@2x.png")
+            // list.appendChild(image)
+
             temp = document.createElement("li")
             temp.textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +"°F")
             document.querySelector("#day"+(x+1)+"Content").appendChild(temp)
@@ -176,6 +192,7 @@ $("#pastResults").on("click", "button", function(){
         }
 
         document.getElementById("cityTitle").textContent = city.toUpperCase()
+        document.getElementById("icon").src = ("http://openweathermap.org/img/wn/"+ data.current.weather[0].icon + "@2x.png")
         document.getElementById("temp").textContent = (String(data.current.temp*(9/5)-459.67).slice(0,5) +"°F")
         document.getElementById("wind").textContent = (data.current.wind_speed + " MPH")
         document.getElementById("humidity").textContent = (data.current.humidity + "%")
