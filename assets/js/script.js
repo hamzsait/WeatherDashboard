@@ -18,9 +18,44 @@ try{
         pastResults.prepend(item)
     }
     saveLocal()
+    
+    getWeatherAPI(items[items.length-1]).then(function(data){
+
+        if (data){
+
+            document.getElementById("cityTitle").textContent = items[items.length-1].toUpperCase()
+            document.getElementById("temp").textContent = (String(data.current.temp*(9/5)-459.67).slice(0,5) +"°F")
+            document.getElementById("wind").textContent = (data.current.wind_speed + " MPH")
+            document.getElementById("humidity").textContent = (data.current.humidity + "%")
+            document.getElementById("uvi").textContent = (data.current.uvi + " UVI")
+
+            removeContent()
+            for (x = 0; x<5; x++){
+
+                list = document.querySelector("#day"+(x+1)+"Content")
+                headDate = document.createElement("li")
+                headDate.textContent = moment().day(x+1).format("MM/DD/YY")
+                list.appendChild(headDate)
+
+                temp = document.createElement("li")
+                temp.textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +"°F")
+                document.querySelector("#day"+(x+1)+"Content").appendChild(temp)
+
+                wind = document.createElement("li")
+                wind.textContent = data.daily[x].wind_speed
+                document.querySelector("#day"+(x+1)+"Content").appendChild(wind)
+
+                humidity = document.createElement("li")
+                humidity.textContent = data.daily[x].humidity
+                document.querySelector("#day"+(x+1)+"Content").appendChild(humidity)
+
+                
+            }
+        }
+    })
 }
 catch{
-    console.log("Nothing in local Storage")
+    console.log("Nothing in Local Storage")
 }
 
 async function getWeatherAPI(city){
@@ -69,6 +104,7 @@ submit.addEventListener("click",function(event){
 
                     list = document.querySelector("#day"+(x+1)+"Content")
                     headDate = document.createElement("li")
+                    headDate.classList.add("headDate")
                     headDate.textContent = moment().day(x+1).format("MM/DD/YY")
                     list.appendChild(headDate)
 
@@ -152,7 +188,7 @@ function saveLocal(){
     output = []
 
     buttons = document.getElementById("pastResults").children
-    for(x = 0; x<buttons.length; x++){
+    for(x = buttons.length-1; x>=0; x--){
         output.push(buttons[x].textContent)
     }
 

@@ -97,29 +97,57 @@ button{
     margin: 10px;
 }
 
+#day1Content{
+    list-style-type: none;
+    padding:0;
+}
+
 #Day2{
     width:20%;
     border: black solid 3px;
     height: 33vh;
     margin: 10px;
 }
+
+#day2Content{
+    list-style-type: none;
+    padding:0;
+}
+
 #Day3{
     width:20%;
     border: black solid 3px;
     height: 33vh;
     margin: 10px;
 }
+
+#day3Content{
+    list-style-type: none;
+    padding:0;
+}
+
 #Day4{
     width:20%;
     border: black solid 3px;
     height: 33vh;
     margin: 10px;
 }
+
+#day4Content{
+    list-style-type: none;
+    padding:0;
+}
+
 #Day5{
     width:20%;
     border: black solid 3px;
     height: 33vh;
     margin: 10px;
+}
+
+#day5Content{
+    list-style-type: none;
+    padding:0;
 }
 
 button:hover{
