@@ -29,8 +29,8 @@ try{
             document.getElementById("temp").textContent = (String(data.current.temp*(9/5)-459.67).slice(0,5) +"°F")
             document.getElementById("wind").textContent = (data.current.wind_speed + " MPH")
             document.getElementById("humidity").textContent = (data.current.humidity + "%")
-            document.getElementById("uvi").textContent = (data.current.uvi + " UVI")
-
+            document.getElementById("uvi").textContent = (data.current.uvi)
+            adjustUVI()
             removeContent()
             for (x = 0; x<5; x++){
 
@@ -108,7 +108,8 @@ submit.addEventListener("click",function(event){
                 document.getElementById("temp").textContent = (String(data.current.temp*(9/5)-459.67).slice(0,5) +"°F")
                 document.getElementById("wind").textContent = (data.current.wind_speed + " MPH")
                 document.getElementById("humidity").textContent = (data.current.humidity + "%")
-                document.getElementById("uvi").textContent = (data.current.uvi + " UVI")
+                document.getElementById("uvi").textContent = (data.current.uvi)
+                adjustUVI()
 
                 removeContent()
                 for (x = 0; x<5; x++){
@@ -116,8 +117,7 @@ submit.addEventListener("click",function(event){
                     list = document.querySelector("#day"+(x+1)+"Content")
                     headDate = document.createElement("li")
                     headDate.classList.add("headDate")
-                    headDate.style.fontSize = "25px"
-                    headDate.style.marginBottom = "40px"
+                    headDate.style.fontSize = "20px"
                     headDate.textContent = moment().day(x+1).format("MM/DD/YY")
                     list.appendChild(headDate)
 
@@ -172,8 +172,7 @@ $("#pastResults").on("click", "button", function(){
 
             list = document.querySelector("#day"+(x+1)+"Content")
             headDate = document.createElement("li")
-            headDate.style.fontSize = "25px"
-            headDate.style.marginBottom = "40px"
+            headDate.style.fontSize = "20px"
             headDate.textContent = moment().day(x+1).format("MM/DD/YY")
             list.appendChild(headDate)
 
@@ -202,10 +201,18 @@ $("#pastResults").on("click", "button", function(){
         document.getElementById("temp").textContent = (String(data.current.temp*(9/5)-459.67).slice(0,5) +"°F")
         document.getElementById("wind").textContent = (data.current.wind_speed + " MPH")
         document.getElementById("humidity").textContent = (data.current.humidity + "%")
-        document.getElementById("uvi").textContent = (data.current.uvi + " UVI")
+        document.getElementById("uvi").textContent = (data.current.uvi)
+        adjustUVI()
     })
     saveLocal()
 })
+
+function adjustUVI(){
+    uvi.textContent = uvi.textContent + " UVI"
+    console.log(uvi.textContent)
+}
+
+
 
 function removeContent(){
     for (x = 0; x<5; x++){
@@ -224,5 +231,3 @@ function saveLocal(){
 
     localStorage.setItem("buttons",output)
 }
-
-
