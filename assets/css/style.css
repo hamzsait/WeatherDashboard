@@ -7,6 +7,13 @@ header{
     background-color: rgb(165, 216, 251);
     height:10vh;
     font-size: 23px;
+    display: flex;
+    justify-content: center;
+}
+
+header h1{
+    margin:0;
+    padding:0;
 }
 
 .container{
@@ -15,7 +22,6 @@ header{
 
 #currentWeatherBox{
     width: auto;
-    height: 40%;
     border: black 2px solid;
     text-align: center;
 }
@@ -55,7 +61,7 @@ header{
 }
 
 #dateTitle{
-    font-size: 30px;
+    font-size: 25px;
 }
 
 #cityItems{

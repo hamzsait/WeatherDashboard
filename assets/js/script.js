@@ -35,7 +35,8 @@ try{
 
                 list = document.querySelector("#day"+(x+1)+"Content")
                 headDate = document.createElement("li")
-                headDate.style.fontSize = "20px"
+                headDate.style.fontSize = "25px"
+                headDate.style.marginBottom = "40px"
                 headDate.textContent = moment().day(x+1).format("MM/DD/YY")
                 list.appendChild(headDate)
 
@@ -107,6 +108,8 @@ submit.addEventListener("click",function(event){
                     list = document.querySelector("#day"+(x+1)+"Content")
                     headDate = document.createElement("li")
                     headDate.classList.add("headDate")
+                    headDate.style.fontSize = "25px"
+                    headDate.style.marginBottom = "40px"
                     headDate.textContent = moment().day(x+1).format("MM/DD/YY")
                     list.appendChild(headDate)
 
@@ -154,7 +157,8 @@ $("#pastResults").on("click", "button", function(){
 
             list = document.querySelector("#day"+(x+1)+"Content")
             headDate = document.createElement("li")
-            headDate.style.fontSize = "20px"
+            headDate.style.fontSize = "25px"
+            headDate.style.marginBottom = "40px"
             headDate.textContent = moment().day(x+1).format("MM/DD/YY")
             list.appendChild(headDate)
 
