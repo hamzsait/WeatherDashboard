@@ -43,11 +43,25 @@ submit.addEventListener("click",function(event){
 
             if (data){
 
-                title.textContent = getInput.value.toUpperCase()
-                temp.textContent = (String(data.current.temp*(9/5)-459.67).slice(0,5) +"°F")
-                wind.textContent = (data.current.wind_speed + " MPH")
-                humidity.textContent = (data.current.humidity + "%")
-                uvi.textContent = (data.current.uvi + " UVI")
+                document.getElementById("cityTitle").textContent = getInput.value.toUpperCase()
+                document.getElementById("temp").textContent = (String(data.current.temp*(9/5)-459.67).slice(0,5) +"°F")
+                document.getElementById("wind").textContent = (data.current.wind_speed + " MPH")
+                document.getElementById("humidity").textContent = (data.current.humidity + "%")
+                document.getElementById("uvi").textContent = (data.current.uvi + " UVI")
+
+                for (x = 0; x<5; x++){
+
+                    document.querySelector("#day"+(x+1)+"Content").textContent = ""
+
+                    temp = document.createElement("li").textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +"°F")
+                    document.querySelector("#day"+(x+1)+"Content").append(temp)
+
+                    wind = document.createElement("li").textContent = data.daily[x].wind_speed
+                    document.querySelector("#day"+(x+1)+"Content").append(wind)
+
+                    humidity = document.createElement("li").textContent = data.daily[x].humidity
+                    document.querySelector("#day"+(x+1)+"Content").append(humidity)
+                }
 
                 for (x = 0; x < pastResults.children.length; x++){
                     if (pastResults.children[x].innerText == getInput.value.toUpperCase()){
@@ -71,11 +85,26 @@ submit.addEventListener("click",function(event){
 $("#pastResults").on("click", "button", function(){
     var city = this.innerText
     getWeatherAPI(city).then(function(data){
-        title.textContent = city.toUpperCase()
-        temp.textContent = (String(data.current.temp*(9/5)-459.67).slice(0,5) +"°F")
-        wind.textContent = (data.current.wind_speed + " MPH")
-        humidity.textContent = (data.current.humidity + "%")
-        uvi.textContent = (data.current.uvi + " UVI")
+        
+        for (x = 0; x<5; x++){
+
+            document.querySelector("#day"+(x+1)+"Content").textContent = ""
+
+            temp = document.createElement("li").textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +"°F ")
+            document.querySelector("#day"+(x+1)+"Content").append(temp)
+
+            wind = document.createElement("li").textContent = data.daily[x].wind_speed
+            document.querySelector("#day"+(x+1)+"Content").append(wind)
+
+            humidity = document.createElement("li").textContent = data.daily[x].humidity
+            document.querySelector("#day"+(x+1)+"Content").append(humidity)
+        }
+
+        document.getElementById("cityTitle").textContent = city.toUpperCase()
+        document.getElementById("temp").textContent = (String(data.current.temp*(9/5)-459.67).slice(0,5) +"°F")
+        document.getElementById("wind").textContent = (data.current.wind_speed + " MPH")
+        document.getElementById("humidity").textContent = (data.current.humidity + "%")
+        document.getElementById("uvi").textContent = (data.current.uvi + " UVI")
     })
 })
 

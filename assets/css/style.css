@@ -62,13 +62,28 @@ header{
 form{
     display: flex;
     flex-direction: column;
-    padding:20px;
     align-items: center;
+}
+
+form input{
+    width:60%;
+}
+
+form button{
+    width:60%;
+    background-color: rgb(93, 139, 248);
+}
+
+form h1{
+    margin-bottom: 20px;
+    border-bottom: black 3px solid;
+    width: 90%;
 }
 
 button{
     width: 40%;
     margin:10px;
+    background-color: rgb(93, 139, 248);
 }
 
 #boxes{
