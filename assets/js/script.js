@@ -8,6 +8,21 @@ var uvi = document.querySelector("#uvi")
 var pastResults = document.querySelector("#pastResults")
 var warning = document.querySelector("#searchError")
 
+try{
+    items = localStorage.getItem("buttons").split(',')
+    for (x = 0; x <items.length; x++){
+
+        item = document.createElement("button")
+        item.textContent = (items[x]).toUpperCase()
+        item.setAttribute("id","preButton")
+        pastResults.prepend(item)
+    }
+    saveLocal()
+}
+catch{
+    console.log("Nothing in local Storage")
+}
+
 async function getWeatherAPI(city){
     try{
     cityLonLat = await fetch("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=fb58f472da0b2a8c35d45500aeb1b7c1")
@@ -49,10 +64,13 @@ submit.addEventListener("click",function(event){
                 document.getElementById("humidity").textContent = (data.current.humidity + "%")
                 document.getElementById("uvi").textContent = (data.current.uvi + " UVI")
 
+                removeContent()
                 for (x = 0; x<5; x++){
 
-                    document.querySelector("#Day"+(x+1)).textContent = ""
-                    document.querySelector("#day"+(x+1)+"Content").textContent = ""
+                    list = document.querySelector("#day"+(x+1)+"Content")
+                    headDate = document.createElement("li")
+                    headDate.textContent = moment().day(x+1).format("MM/DD/YY")
+                    list.appendChild(headDate)
 
                     temp = document.createElement("li")
                     temp.textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +"°F")
@@ -65,6 +83,8 @@ submit.addEventListener("click",function(event){
                     humidity = document.createElement("li")
                     humidity.textContent = data.daily[x].humidity
                     document.querySelector("#day"+(x+1)+"Content").appendChild(humidity)
+
+                    
                 }
 
                 for (x = 0; x < pastResults.children.length; x++){
@@ -77,6 +97,7 @@ submit.addEventListener("click",function(event){
                 item.textContent = (getInput.value).toUpperCase()
                 item.setAttribute("id","preButton")
                 pastResults.prepend(item)
+                saveLocal()
             }
         })
     }
@@ -89,10 +110,14 @@ submit.addEventListener("click",function(event){
 $("#pastResults").on("click", "button", function(){
     var city = this.innerText
     getWeatherAPI(city).then(function(data){
-        
+    
+    removeContent()
         for (x = 0; x<5; x++){
 
-            document.querySelector("#day"+(x+1)+"Content").textContent = ""
+            list = document.querySelector("#day"+(x+1)+"Content")
+            headDate = document.createElement("li")
+            headDate.textContent = moment().day(x+1).format("MM/DD/YY")
+            list.appendChild(headDate)
 
             temp = document.createElement("li")
             temp.textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +"°F")
@@ -113,5 +138,25 @@ $("#pastResults").on("click", "button", function(){
         document.getElementById("humidity").textContent = (data.current.humidity + "%")
         document.getElementById("uvi").textContent = (data.current.uvi + " UVI")
     })
+    saveLocal()
 })
+
+function removeContent(){
+    for (x = 0; x<5; x++){
+        $("#day"+(x+1)+"Content").empty()
+    }
+}
+
+function saveLocal(){
+
+    output = []
+
+    buttons = document.getElementById("pastResults").children
+    for(x = 0; x<buttons.length; x++){
+        output.push(buttons[x].textContent)
+    }
+
+    localStorage.setItem("buttons",output)
+}
+
 
