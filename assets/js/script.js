@@ -48,15 +48,15 @@ try{
                 document.querySelector("#day"+(x+1)+"Content").appendChild(image)
 
                 temp = document.createElement("li")
-                temp.textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +"°F")
+                temp.textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +" °F")
                 document.querySelector("#day"+(x+1)+"Content").appendChild(temp)
 
                 wind = document.createElement("li")
-                wind.textContent = data.daily[x].wind_speed
+                wind.textContent = data.daily[x].wind_speed + (" MPH Wind")
                 document.querySelector("#day"+(x+1)+"Content").appendChild(wind)
 
                 humidity = document.createElement("li")
-                humidity.textContent = data.daily[x].humidity
+                humidity.textContent = data.daily[x].humidity + (" Humidity")
                 document.querySelector("#day"+(x+1)+"Content").appendChild(humidity)
 
                 
@@ -121,20 +121,23 @@ submit.addEventListener("click",function(event){
                     headDate.textContent = moment().day(x+1).format("MM/DD/YY")
                     list.appendChild(headDate)
 
-                    // image = document.createElement("img")
-                    // image.src = ("http://openweathermap.org/img/wn/"+ data.daily.current.weather[0].icon + "@2x.png")
-                    // list.appendChild(image)
+                    console.log(data.daily[x].weather[0].icon)
+                    image = document.createElement("img")
+                    image.src = ("http://openweathermap.org/img/wn/"+ data.daily[x].weather[0].icon + "@2x.png")
+                    image.style.margin = 0
+                    image.style.padding = 0
+                    document.querySelector("#day"+(x+1)+"Content").appendChild(image)    
 
                     temp = document.createElement("li")
-                    temp.textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +"°F")
+                    temp.textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +" °F")
                     document.querySelector("#day"+(x+1)+"Content").appendChild(temp)
 
                     wind = document.createElement("li")
-                    wind.textContent = data.daily[x].wind_speed
+                    wind.textContent = data.daily[x].wind_speed + (" MPH Wind")
                     document.querySelector("#day"+(x+1)+"Content").appendChild(wind)
 
                     humidity = document.createElement("li")
-                    humidity.textContent = data.daily[x].humidity
+                    humidity.textContent = data.daily[x].humidity + (" Humidity")
                     document.querySelector("#day"+(x+1)+"Content").appendChild(humidity)
 
                     
@@ -174,20 +177,23 @@ $("#pastResults").on("click", "button", function(){
             headDate.textContent = moment().day(x+1).format("MM/DD/YY")
             list.appendChild(headDate)
 
-            // image = document.createElement("img")
-            // image.src = ("http://openweathermap.org/img/wn/"+ data.daily.current.weather[0].icon + "@2x.png")
-            // list.appendChild(image)
+            console.log(data.daily[x].weather[0].icon)
+            image = document.createElement("img")
+            image.src = ("http://openweathermap.org/img/wn/"+ data.daily[x].weather[0].icon + "@2x.png")
+            image.style.margin = 0
+            image.style.padding = 0
+            document.querySelector("#day"+(x+1)+"Content").appendChild(image)
 
             temp = document.createElement("li")
-            temp.textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +"°F")
+            temp.textContent = (String(data.daily[x].temp.day*(9/5)-459.67).slice(0,5) +" °F")
             document.querySelector("#day"+(x+1)+"Content").appendChild(temp)
 
             wind = document.createElement("li")
-            wind.textContent = data.daily[x].wind_speed
+            wind.textContent = data.daily[x].wind_speed + (" MPH Wind")
             document.querySelector("#day"+(x+1)+"Content").appendChild(wind)
 
             humidity = document.createElement("li")
-            humidity.textContent = data.daily[x].humidity
+            humidity.textContent = data.daily[x].humidity + (" Humidity")
             document.querySelector("#day"+(x+1)+"Content").appendChild(humidity)
         }
 
