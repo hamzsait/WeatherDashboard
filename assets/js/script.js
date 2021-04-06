@@ -9,7 +9,16 @@ var pastResults = document.querySelector("#pastResults")
 var warning = document.querySelector("#searchError")
 
 try{
-    items = localStorage.getItem("buttons").split(',')
+
+    try{
+        items = localStorage.getItem("buttons").split(',')
+    }
+    catch{
+        start = ["Austin"]
+        localStorage.setItem("buttons",start)
+        items = localStorage.getItem("buttons").split(',')
+    }
+
     for (x = 0; x <items.length; x++){
 
         item = document.createElement("button")
