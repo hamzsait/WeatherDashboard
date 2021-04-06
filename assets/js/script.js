@@ -207,9 +207,26 @@ $("#pastResults").on("click", "button", function(){
 })
 
 function adjustUVI(){
-    uvi.textContent = uvi.textContent + " UVI"
-    uvi.style.display = "block"
-    console.log(uvi)
+
+    index = Number(uvi.textContent)
+
+    if (index <= 2){
+        uvi.textContent = uvi.textContent + " UVI: Low"
+        uvi.style.backgroundColor = "green"
+    }
+    else if (index > 2  && index <= 5){
+        uvi.textContent = uvi.textContent + " UVI: Moderate"
+        uvi.style.backgroundColor = "yellow"
+    }
+    else if (index > 5  && index <= 8){
+        uvi.textContent = uvi.textContent + " UVI: High"
+        uvi.style.backgroundColor = "orange"
+    }
+    else {
+        uvi.textContent = uvi.textContent + " UVI: Very High"
+        uvi.style.backgroundColor = "red"
+    }
+
 }
 
 
