@@ -209,7 +209,8 @@ $("#pastResults").on("click", "button", function(){
 
 function adjustUVI(){
     uvi.textContent = uvi.textContent + " UVI"
-    console.log(uvi.textContent)
+    uvi.style.display = "block"
+    console.log(uvi)
 }
 
 

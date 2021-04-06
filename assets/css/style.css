@@ -29,7 +29,6 @@ header h1{
 
 #searchCol{
     width:30%;
-    border:black solid 1px;
     text-align: center;
     flex-flow: column;
     height: 87vh;
@@ -56,7 +55,6 @@ h2{
 
 #weatherCol{
     width:70%;
-    border:black solid 1px;
     text-align: center;
     flex-flow: column;
     height: 87vh;
@@ -116,7 +114,7 @@ button{
     justify-content: space-around;
 }
 
-#Day1{
+.card{
     width:15%;
     border: black solid 3px;
     height: 36vh;
@@ -125,69 +123,7 @@ button{
     color: white;
 }
 
-#day1Content{
-    list-style-type: none;
-    padding:0;
-    font-size: 20px;
-}
-
-#Day2{
-    width:15%;
-    border: black solid 3px;
-    height: 36vh;
-    margin: 10px;
-    background-color: rgb(3, 3, 109);
-    color: white;
-}
-
-#day2Content{
-    list-style-type: none;
-    padding:0;
-    font-size: 20px;
-}
-
-#Day3{
-    width:15%;
-    border: black solid 3px;
-    height: 36vh;
-    margin: 10px;
-    background-color: rgb(3, 3, 109);
-    color: white;
-}
-
-#day3Content{
-    list-style-type: none;
-    padding:0;
-    font-size: 20px;
-}
-
-#Day4{
-    width:15%;
-    border: black solid 3px;
-    height: 36vh;
-    margin: 10px;
-    background-color: rgb(3, 3, 109);
-    color: white;
-    font-size: 25px;
-}
-
-#day4Content{
-    list-style-type: none;
-    padding:0;
-    font-size:20px;
-}
-
-#Day5{
-    width:15%;
-    border: black solid 3px;
-    height: 36vh;
-    margin: 10px;
-    background-color: rgb(3, 3, 109);
-    color: white;
-    font-size: 25px;
-}
-
-#day5Content{
+.cardContent{
     list-style-type: none;
     padding:0;
     font-size: 20px;
