@@ -36,8 +36,8 @@ try{
             document.getElementById("icon").src = ("http://openweathermap.org/img/wn/"+ data.current.weather[0].icon + "@2x.png")
             document.getElementById("dateTitle").textContent = moment().day(1).format("MM/DD/YY")
             document.getElementById("temp").textContent = (String(data.current.temp*(9/5)-459.67).slice(0,5) +"°F")
-            document.getElementById("wind").textContent = (data.current.wind_speed + " MPH")
-            document.getElementById("humidity").textContent = (data.current.humidity + "%")
+            document.getElementById("wind").textContent = (data.current.wind_speed + " MPH Wind")
+            document.getElementById("humidity").textContent = (data.current.humidity + "% Humidity")
             document.getElementById("uvi").textContent = (data.current.uvi)
             adjustUVI()
             removeContent()
@@ -64,7 +64,7 @@ try{
                 document.querySelector("#day"+(x+1)+"Content").appendChild(wind)
 
                 humidity = document.createElement("li")
-                humidity.textContent = data.daily[x].humidity + (" Humidity")
+                humidity.textContent = data.daily[x].humidity + ("% Humidity")
                 document.querySelector("#day"+(x+1)+"Content").appendChild(humidity)
 
                 
@@ -117,7 +117,7 @@ submit.addEventListener("click",function(event){
                 document.getElementById("icon").src = ("http://openweathermap.org/img/wn/"+ data.current.weather[0].icon + "@2x.png")
                 document.getElementById("temp").textContent = (String(data.current.temp*(9/5)-459.67).slice(0,5) +"°F")
                 document.getElementById("wind").textContent = (data.current.wind_speed + " MPH")
-                document.getElementById("humidity").textContent = (data.current.humidity + "%")
+                document.getElementById("humidity").textContent = (data.current.humidity + "% Humidity")
                 document.getElementById("uvi").textContent = (data.current.uvi)
                 adjustUVI()
 
@@ -146,7 +146,7 @@ submit.addEventListener("click",function(event){
                     document.querySelector("#day"+(x+1)+"Content").appendChild(wind)
 
                     humidity = document.createElement("li")
-                    humidity.textContent = data.daily[x].humidity + (" Humidity")
+                    humidity.textContent = data.daily[x].humidity + ("% Humidity")
                     document.querySelector("#day"+(x+1)+"Content").appendChild(humidity)
 
                     
@@ -200,7 +200,7 @@ $("#pastResults").on("click", "button", function(){
             document.querySelector("#day"+(x+1)+"Content").appendChild(wind)
 
             humidity = document.createElement("li")
-            humidity.textContent = data.daily[x].humidity + (" Humidity")
+            humidity.textContent = data.daily[x].humidity + ("% Humidity")
             document.querySelector("#day"+(x+1)+"Content").appendChild(humidity)
         }
 
