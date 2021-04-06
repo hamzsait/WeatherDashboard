@@ -97,7 +97,6 @@ submit.addEventListener("click",function(event){
 
     if (getInput){
 
-        warning.textContent = ""
 
         getWeatherAPI(getInput.value).then(function(data){
 

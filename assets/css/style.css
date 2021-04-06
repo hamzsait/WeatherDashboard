@@ -1,3 +1,4 @@
+
 header{
     width:100%;
     margin:auto;
@@ -5,7 +6,7 @@ header{
     border:black solid 1px;
     text-align: center;
     background-color: rgb(165, 216, 251);
-    height:10vh;
+    height:auto;
     font-size: 23px;
     display: flex;
     justify-content: center;
@@ -25,6 +26,8 @@ header h1{
     width: auto;
     border: black 2px solid;
     text-align: center;
+    background-color: rgb(3, 3, 109);
+    color:white;
 }
 
 #searchCol{
@@ -80,6 +83,11 @@ h2{
     padding:0;
 }
 
+#uvi{
+    padding:0;
+    margin:0;
+}
+
 form{
     display: flex;
     flex-direction: column;
@@ -111,24 +119,52 @@ button{
 #boxes{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .card{
     width:15%;
     border: black solid 3px;
-    height: 36vh;
+    height:auto;
     margin: 10px;
     background-color: rgb(3, 3, 109);
     color: white;
+    align-items: center;
 }
 
 .cardContent{
     list-style-type: none;
     padding:0;
     font-size: 20px;
+    align-items: center;
 }
 
 button:hover{
     background-color: azure;
+}
+
+@media screen and (max-width:785px){
+
+    .container{
+        display: block;
+    }
+
+    #searchCol{
+        height:auto;
+        width: auto;
+    }
+
+    #weatherCol{
+        width: auto;
+    }
+}
+
+@media screen and (max-width:550px){
+
+    #boxes{
+        display: block;
+    }
+    .card{
+        width: 95%;
+    }
 }
